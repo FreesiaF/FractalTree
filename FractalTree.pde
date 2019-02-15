@@ -8,20 +8,13 @@ public void setup()
 } 
 public void draw() 
 {   
-	background(255,255,255);   
+	background(177, 228, 237);  
+
 	stroke(98,52,18);
 	strokeWeight(25);
 	line(330,480,330,380);   
 	drawBranches(330,380,100,3*Math.PI/2,20);; 
 
- 
-
-
-	stroke(108,62,28);
-
-	strokeWeight(15);
-	line(330,480,330,380);
-	drawBranches(330,380,100,3*Math.PI/2,10); 
 
 } 
 public void drawBranches(int x,int y, double branchLength, double angle,double strokeW) 
@@ -39,11 +32,19 @@ public void drawBranches(int x,int y, double branchLength, double angle,double s
 	branchLength = branchLength * fractionLength;
 	strokeW = strokeW * fractionLength;
 
+
 	if (branchLength>smallestBranch)
 	{
 		drawBranches(endX1,endY1,branchLength,angle1,strokeW);
 		drawBranches(endX2,endY2,branchLength,angle2,strokeW);
 	}
-
+	if (branchLength < 15)
+	{
+		fill(244, 54, 76,100);
+		noStroke();
+		ellipse(endX1,endY1,5,5);
+		ellipse(endX2,endY2,5,5);
+		stroke(98,52,18);
+	}
 
 } 
